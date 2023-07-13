@@ -29,3 +29,26 @@
 import './index.css';
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
+
+
+const footerInformation = document.getElementById('info')
+footerInformation.innerText = `Running Chrome (v${window.versions.chrome()})`
+
+const dropZone = document.getElementById('dropzone')
+dropZone.addEventListener('drop',(e) => {
+	e.preventDefault();
+	for (const f of e.dataTransfer.files) {
+		console.log('File(s) you dragged here: ', f.path)
+		window.ffmpeg.encode(f.path)
+	}
+})
+
+document.addEventListener('drop',(e) => {
+	e.preventDefault()
+	e.stopPropagation()
+})
+document.addEventListener('dragover',(e) => {
+	e.preventDefault()
+	e.stopPropagation()
+})
+console.log('stillworking')
