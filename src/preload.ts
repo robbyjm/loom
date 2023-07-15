@@ -9,8 +9,8 @@ contextBridge.exposeInMainWorld('versions', {
 
 contextBridge.exposeInMainWorld('ffmpeg', {
 	encode: (filePath: string) => {
-		execSync(`ffmpeg -i ${filePath} output.avi`, {
-			cwd: 'C:\\Users\\robby\\Desktop'
+		execSync(`ffmpeg -i "${filePath}" -r 60 -c:v prores -profile:v 0 -c:a copy -map 0 output.mov`, {
+			cwd: 'C:\\Users\\robby\\Videos\\loom'
 		})
 	} 
 })

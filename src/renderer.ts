@@ -52,4 +52,3 @@ document.addEventListener('dragover',(e) => {
 	e.preventDefault()
 	e.stopPropagation()
 })
-console.log('stillworking')
