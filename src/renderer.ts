@@ -28,36 +28,20 @@
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { createTable } from "../lib/library";
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
-
-
 const footerInformation = document.getElementById('info')
-const section = document.createElement('section')
-const table = document.createElement('table')
-table.classList.add('table')
 footerInformation.innerText = `Running Chrome (v${window.versions.chrome()})`
 
 const dropZone = document.getElementById('dropzone')
 dropZone.addEventListener('drop',(e) => {
 	e.preventDefault();
 	for (const f of e.dataTransfer.files) {
-		createTable(f.path)
+		createTable(dropZone,f.path)
 		//window.ffmpeg.encode(f.path, 60,0)
 	}
 })
-
-function createTable(filePath: string) {
-	if (!document.getElementById('fileSection')) {
-		section.id = 'fileSection'
-		dropZone.after(section)
-		section.appendChild(table)
-	}
-	const newRow = table.insertRow(-1)
-	const newCell = newRow.insertCell(0)
-	const newText = document.createTextNode(filePath)
-	newCell.appendChild(newText)
-}
 
 document.addEventListener('drop',(e) => {
 	e.preventDefault()
