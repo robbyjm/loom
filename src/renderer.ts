@@ -27,6 +27,7 @@
  */
 
 import './index.css';
+import 'bootstrap-icons/font/bootstrap-icons.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createTable } from "../lib/library";
 
@@ -52,4 +53,4 @@ document.addEventListener('drop',(e) => {
 document.addEventListener('dragover',(e) => {
 	e.preventDefault()
 	e.stopPropagation()
-})
+})	
