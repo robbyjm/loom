@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hello World!</title>
 
-  </head>
-  <body class="bg-light container">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World!</title>
 
-    <header class="text-center">
-      <h1>🧵 Welcome to Loom</h1>
-    </header>
-    <div id="dropandcontrols" class="row">
+</head>
+
+<body class="bg-light">
+
+  <header class="navbar navbar-expland-lg justify-content-center">
+    <h1 class="display-2">🧵 Welcome to <span class="text-body-secondary">Loom</span></h1>
+  </header>
+  <div id="dropandcontrols" class="container mb-3">
+    <div  class="row align-content-center">
       <div class="col">
-        <main id="dropzone" class="bg-white h-100 text-center border border-2 rounded">
-          <div class="row align-items-center"><div class="col"><h1>📦</h1></div></div>
+        <main id="dropzone"
+          class="bg-white h-100 d-flex align-items-center justify-content-center border border-2 rounded shadow-lg">
+          <button class="btn btn-outline-secondary rounded fs-2">
+            <i class="bi bi-upload"></i>
+          </button>
         </main>
       </div>
       <div class="col">
@@ -35,8 +41,10 @@
         <button type="button" class="btn btn-primary" disabled>Make Proxies</button>
       </div>
     </div>
-    <footer class="text-end mt-auto">
-      <p id="info"></p>
-    </footer>
-  </body>
+  </div>
+  <footer class="text-end mt-auto">
+    <p id="info"></p>
+  </footer>
+</body>
+
 </html>
