@@ -8,6 +8,12 @@ contextBridge.exposeInMainWorld('versions', {
 })
 
 contextBridge.exposeInMainWorld('ffmpeg', {
+	/**
+	 * takes a file path, frame rate, and prores quality to make a proxy. 
+	 * @param filePath file path that will be used to create a proxy
+	 * @param frameRate the desired framerate of the proxy
+	 * @param profile the desired prores proxy to be used
+	 */
 	encode: (filePath: string, frameRate: number, profile: number) => {
 		execSync(`ffmpeg -i "${filePath}" -r ${frameRate} -c:v prores -profile:v ${profile} -c:a copy -map 0 output.mov`, {
 			cwd: 'C:\\Users\\robby\\Videos\\loom'
