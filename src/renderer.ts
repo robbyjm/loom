@@ -31,14 +31,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { createTable } from "../lib/library";
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
+
+
 const footerInformation = document.getElementById('info')
 footerInformation.innerText = `Running Chrome (v${window.versions.chrome()})`
-
+const dropandcontrols = document.getElementById('dropandcontrols')
 const dropZone = document.getElementById('dropzone')
 dropZone.addEventListener('drop',(e) => {
 	e.preventDefault();
 	for (const f of e.dataTransfer.files) {
-		createTable(dropZone,f.path)
+		createTable(dropandcontrols, f.path)
 		//window.ffmpeg.encode(f.path, 60,0)
 	}
 })

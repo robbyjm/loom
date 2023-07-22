@@ -10,9 +10,31 @@
     <header class="text-center">
       <h1>🧵 Welcome to Loom</h1>
     </header>
-    <main id="dropzone" class="bg-white text-center border border-2 rounded">
-      <div class="row align-items-center"><div class="col"><h1>📦</h1></div></div>
-    </main>
+    <div id="dropandcontrols" class="row">
+      <div class="col">
+        <main id="dropzone" class="bg-white h-100 text-center border border-2 rounded">
+          <div class="row align-items-center"><div class="col"><h1>📦</h1></div></div>
+        </main>
+      </div>
+      <div class="col">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Select FPS</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+          <option value="60">60</option>
+          <option value="120">120</option>
+        </select>
+        <select class="form-select mb-3" aria-label="Default select example">
+          <option selected>Select Profile</option>
+          <option value="0">Proxy</option>
+          <option value="1">LT</option>
+          <option value="2">Normal</option>
+          <option value="3">HQ</option>
+        </select>
+        <button type="button" class="btn btn-primary" disabled>Make Proxies</button>
+      </div>
+    </div>
     <footer class="text-end mt-auto">
       <p id="info"></p>
     </footer>
