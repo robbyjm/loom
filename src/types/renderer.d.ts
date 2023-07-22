@@ -1,5 +1,5 @@
 export interface IFfmpeg {
-	encode: (fileName:string) => Promise<void>,
+	encode: (fileName:string, frameRate: number, profile: number) => Promise<void>,
 }
 
 export interface IVersions {

@@ -1,6 +1,6 @@
 // See the Electron documentation for details on how to use preload scripts:
 // https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
-import { contextBridge, ipcRenderer } from "electron";
+import { contextBridge } from "electron";
 import { execSync } from "child_process";
 
 contextBridge.exposeInMainWorld('versions', {
@@ -8,8 +8,8 @@ contextBridge.exposeInMainWorld('versions', {
 })
 
 contextBridge.exposeInMainWorld('ffmpeg', {
-	encode: (filePath: string) => {
-		execSync(`ffmpeg -i "${filePath}" -r 60 -c:v prores -profile:v 0 -c:a copy -map 0 output.mov`, {
+	encode: (filePath: string, frameRate: number, profile: number) => {
+		execSync(`ffmpeg -i "${filePath}" -r ${frameRate} -c:v prores -profile:v ${profile} -c:a copy -map 0 output.mov`, {
 			cwd: 'C:\\Users\\robby\\Videos\\loom'
 		})
 	} 

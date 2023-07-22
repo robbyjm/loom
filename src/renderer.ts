@@ -39,10 +39,21 @@ const dropZone = document.getElementById('dropzone')
 dropZone.addEventListener('drop',(e) => {
 	e.preventDefault();
 	for (const f of e.dataTransfer.files) {
-		console.log('File(s) you dragged here: ', f.path)
-		window.ffmpeg.encode(f.path)
+		createTable(f.path)
+		//window.ffmpeg.encode(f.path, 60,0)
 	}
 })
+
+function createTable(filePath: string) {
+	const section = document.createElement('section')
+	dropZone.after(section)
+	const table = document.createElement('table')
+	section.appendChild(table)
+	const newRow = table.insertRow(-1)
+	const newCell = newRow.insertCell(0)
+	const newText = document.createTextNode(filePath)
+	newCell.appendChild(newText)
+}
 
 document.addEventListener('drop',(e) => {
 	e.preventDefault()
