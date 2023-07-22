@@ -33,6 +33,9 @@ console.log('👋 This message is being logged by "renderer.js", included via we
 
 
 const footerInformation = document.getElementById('info')
+const section = document.createElement('section')
+const table = document.createElement('table')
+table.classList.add('table')
 footerInformation.innerText = `Running Chrome (v${window.versions.chrome()})`
 
 const dropZone = document.getElementById('dropzone')
@@ -45,10 +48,11 @@ dropZone.addEventListener('drop',(e) => {
 })
 
 function createTable(filePath: string) {
-	const section = document.createElement('section')
-	dropZone.after(section)
-	const table = document.createElement('table')
-	section.appendChild(table)
+	if (!document.getElementById('fileSection')) {
+		section.id = 'fileSection'
+		dropZone.after(section)
+		section.appendChild(table)
+	}
 	const newRow = table.insertRow(-1)
 	const newCell = newRow.insertCell(0)
 	const newText = document.createTextNode(filePath)
