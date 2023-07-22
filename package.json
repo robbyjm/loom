@@ -1,6 +1,6 @@
 {
-  "name": "my-newer-app",
-  "productName": "my-newer-app",
+  "name": "loom",
+  "productName": "loom",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
