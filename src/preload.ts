@@ -15,8 +15,10 @@ contextBridge.exposeInMainWorld('ffmpeg', {
 	 * @param profile the desired prores proxy to be used
 	 */
 	encode: (filePath: string, frameRate: number, profile: number) => {
+		console.log(`ffmpeg -i "${filePath}" -r ${frameRate} -c:v prores -profile:v ${profile} -c:a copy -map 0 output.mov`)
 		execSync(`ffmpeg -i "${filePath}" -r ${frameRate} -c:v prores -profile:v ${profile} -c:a copy -map 0 output.mov`, {
-			cwd: 'C:\\Users\\robby\\Videos\\loom'
+			cwd: '/Users/robby/desktop',
+			shell: '/bin/zsh'
 		})
 	} 
 })

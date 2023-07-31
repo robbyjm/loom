@@ -29,7 +29,7 @@
 import './index.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createTable } from "../lib/library";
+import { createTable, getFiles } from "../lib/library";
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
@@ -44,6 +44,15 @@ dropZone.addEventListener('drop',(e) => {
 		createTable(dropandcontrols, f.path)
 		//window.ffmpeg.encode(f.path, 60,0)
 	}
+})
+
+const proxyButton: HTMLButtonElement = document.getElementById('makeproxy') as HTMLButtonElement
+proxyButton.addEventListener('click',() => {
+	const theTable: HTMLTableElement = document.getElementById('fileTable') as HTMLTableElement
+	const list: string[] = getFiles(theTable)
+	const profile = document.getElementById('proxy') 
+	const fps = document.getElementById('fps')
+	list.forEach((e)=>window.ffmpeg.encode(e,fps.value,profile.value))
 })
 
 document.addEventListener('drop',(e) => {
